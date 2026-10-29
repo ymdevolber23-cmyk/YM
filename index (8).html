@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YM | Innovation & Excellence Solutions</title>
+  <link rel="icon" href="https://i.ibb.co/Xf99DQtF/IMG-20261026-155118-094.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f1f5f9;
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent: #0ea5e9;
+      --border: #e2e8f0;
+      --card-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      --header-bg: rgba(255,255,255,0.85);
+      --gradient: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+      --hero-gradient: linear-gradient(135deg, #0f172a 0%, #0369a1 100%);
+      --radius: 16px;
+      --transition: 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1220;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1e293b;
+      --text: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --accent: #7dd3fc;
+      --border: #1e293b;
+      --card-shadow: 0 4px 24px rgba(0,0,0,0.35);
+      --header-bg: rgba(11,18,32,0.9);
+      --gradient: linear-gradient(135deg, #0b1220 0%, #111827 100%);
+      --hero-gradient: linear-gradient(135deg, #0f172a 0%, #0c4a6e 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    [lang="en"] body,
+    body[dir="ltr"] {
+      font-family: 'Inter', 'Cairo', sans-serif;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: var(--header-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 5%;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 38px;
+      width: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    nav a:hover {
+      color: var(--primary);
+      background: var(--bg-tertiary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toggle-btn {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all var(--transition);
+    }
+
+    .toggle-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .lang-btn {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all var(--transition);
+      font-family: inherit;
+    }
+
+    .lang-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 5% 80px;
+      background: var(--gradient);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(2,132,199,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-bg-text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: clamp(10rem, 30vw, 22rem);
+      font-weight: 900;
+      color: var(--text);
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: -0.05em;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(2,132,199,0.12);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all var(--transition);
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 2px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Section common */
+    section {
+      padding: 90px 5%;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 50px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* About / Developers */
+    .about {
+      background: var(--bg-secondary);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .about-text p {
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    .about-text .highlight {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .developers {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .dev-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all var(--transition);
+    }
+
+    .dev-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow);
+      border-color: var(--primary);
+    }
+
+    .dev-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--hero-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .dev-info h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .dev-info span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4px;
+      height: 0;
+      background: var(--primary);
+      transition: height var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-shadow);
+      border-color: transparent;
+    }
+
+    .service-card:hover::before {
+      height: 100%;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(2,132,199,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      color: var(--primary);
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Projects */
+    .projects {
+      background: var(--bg-secondary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .project-img {
+      height: 180px;
+      background: var(--hero-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      position: relative;
+    }
+
+    .project-img.placeholder {
+      background: var(--bg-tertiary);
+      color: var(--text-muted);
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .project-body {
+      padding: 22px;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: rgba(2,132,199,0.12);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .project-body p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    /* Social */
+    .social-section {
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .social-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 36px;
+      min-width: 200px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .social-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-shadow);
+      border-color: var(--primary);
+    }
+
+    .social-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .social-icon.fb {
+      background: #1877f2;
+      color: white;
+    }
+
+    .social-icon.ig {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+    }
+
+    .social-card span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .social-card small {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Contact */
+    .contact {
+      background: var(--bg-secondary);
+    }
+
+    .contact-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-secondary);
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2,132,199,0.15);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      font-family: inherit;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .form-status {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .form-status.success {
+      display: block;
+      color: #166534;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+    }
+
+    .form-status.error {
+      display: block;
+      color: #991b1b;
+      background: #fee2e2;
+      border: 1px solid #fca5a5;
+    }
+
+    [data-theme="dark"] .form-status.success {
+      color: #bbf7d0;
+      background: rgba(22, 101, 52, 0.25);
+      border-color: rgba(134, 239, 172, 0.45);
+    }
+
+    [data-theme="dark"] .form-status.error {
+      color: #fecaca;
+      background: rgba(153, 27, 27, 0.25);
+      border-color: rgba(252, 165, 165, 0.45);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-tertiary);
+      text-align: center;
+      padding: 36px 5%;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    footer strong {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--header-bg);
+        backdrop-filter: blur(16px);
+        padding: 16px;
+        border-bottom: 1px solid var(--border);
+        gap: 4px;
+      }
+      nav.active a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 120px 5% 60px;
+      }
+      .contact-wrapper {
+        padding: 28px 20px;
+      }
+      section {
+        padding: 70px 5%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">
+      <img src="https://i.ibb.co/Xf99DQtF/IMG-20261026-155118-094.jpg" alt="YM Logo">
+    </a>
+
+    <nav id="nav">
+      <a href="#about" data-i18n="nav_about">من نحن</a>
+      <a href="#services" data-i18n="nav_services">خدماتنا</a>
+      <a href="#projects" data-i18n="nav_projects">مشاريعنا</a>
+      <a href="#social" data-i18n="nav_social">تابعنا</a>
+      <a href="#contact" data-i18n="nav_contact">تواصل معنا</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-btn" id="langToggle" title="تغيير اللغة">EN</button>
+      <button class="toggle-btn" id="themeToggle" title="تبديل الوضع">🌙</button>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="القائمة">☰</button>
+    </div>
+  </header>
+
+  <!-- Fixed background text - appears on all sections -->
+  <div class="page-bg-text">YM</div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge" data-i18n="hero_badge">شراكة تقنية للنمو</span>
+      <h1 data-i18n="hero_title">نبني حلول <span>تنمو</span> معك</h1>
+      <p data-i18n="hero_desc">نحن فريق متخصص في تحويل الأفكار إلى منصات رقمية احترافية. نركز على الجودة، السرعة، وتجربة المستخدم لنساعدك على تحقيق نتائج حقيقية.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">ابدأ مشروعك الآن</a>
+        <a href="#services" class="btn btn-outline" data-i18n="hero_cta2">اكتشف خدماتنا</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 data-i18n="about_title">من نحن</h2>
+        <p data-i18n="about_p1">YM ليست مجرد شركة برمجيات، بل شراكة حقيقية مبنية على الابتكار والتميز. نؤمن أن كل فكرة تستحق أن تتحول إلى منتج رقمي يترك أثرًا.</p>
+        <p data-i18n="about_p2">نعمل بروح الفريق، ونضع جودة الكود وتجربة المستخدم في صميم كل مشروع. هدفنا مش بس نسلم لك موقع، لكن نبني معاك حل ينمو ويكبر.</p>
+        <p><span class="highlight" data-i18n="about_highlight">Innovation & Excellence Solutions</span></p>
+      </div>
+      <div class="developers">
+        <div class="dev-card">
+          <div class="dev-avatar">ي</div>
+          <div class="dev-info">
+            <h4 data-i18n="dev1_name">يحيى خيري</h4>
+            <span data-i18n="dev1_role">مطور ويب</span>
+          </div>
+        </div>
+        <div class="dev-card">
+          <div class="dev-avatar">م</div>
+          <div class="dev-info">
+            <h4 data-i18n="dev2_name">معاذ ياسر</h4>
+            <span data-i18n="dev2_role">مطور ويب</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="section-header">
+      <h2 data-i18n="services_title">خدماتنا</h2>
+      <p data-i18n="services_desc">نقدم حلول متكاملة تناسب احتياجات مشروعك بدقة واحترافية</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <h3 data-i18n="s1_title">صفحة هبوط</h3>
+        <p data-i18n="s1_desc">صفحات هبوط جذابة وسريعة مصممة لتحويل الزوار إلى عملاء بأعلى معدلات التحويل.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3 data-i18n="s2_title">موقع تعريفي</h3>
+        <p data-i18n="s2_desc">مواقع شركات احترافية تعكس هويتك وتبني ثقة عملائك بأسلوب أنيق وحديث.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📚</div>
+        <h3 data-i18n="s3_title">منصة تعليمية</h3>
+        <p data-i18n="s3_desc">منصات تعليم إلكتروني متكاملة مع إدارة محتوى، اختبارات، وتجربة تعلم سلسة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3 data-i18n="s4_title">متجر إلكتروني بسيط</h3>
+        <p data-i18n="s4_desc">متاجر إلكترونية خفيفة وسريعة لعرض منتجاتك واستقبال الطلبات بسهولة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3 data-i18n="s5_title">لوحة تحكم</h3>
+        <p data-i18n="s5_desc">لوحات تحكم مخصصة لإدارة بياناتك ومشروعك بكل سهولة ووضوح.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3 data-i18n="s6_title">تحسين سرعة الموقع</h3>
+        <p data-i18n="s6_desc">نحسن أداء موقعك ليصبح أسرع وأخف، مما يرفع تجربة المستخدم وترتيبك في محركات البحث.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛠️</div>
+        <h3 data-i18n="s7_title">تصحيح أكواد</h3>
+        <p data-i18n="s7_desc">إصلاح الأخطاء البرمجية وتحسين جودة الكود ليعمل مشروعك بسلاسة واستقرار.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <div class="section-header">
+      <h2 data-i18n="projects_title">مشاريعنا</h2>
+      <p data-i18n="projects_desc">مساحات جاهزة لعرض أعمالنا القادمة</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img placeholder" data-i18n="proj_placeholder">قريبًا</div>
+        <div class="project-body">
+          <span class="project-tag" data-i18n="proj_soon">قريبًا</span>
+          <h3 data-i18n="proj1_title">مشروع قادم</h3>
+          <p data-i18n="proj1_desc">هنا هنعرض أول مشاريع YM بعد الإطلاق.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img placeholder" data-i18n="proj_placeholder">قريبًا</div>
+        <div class="project-body">
+          <span class="project-tag" data-i18n="proj_soon">قريبًا</span>
+          <h3 data-i18n="proj2_title">مشروع قادم</h3>
+          <p data-i18n="proj2_desc">مساحة محجوزة لفكرة جديدة نبنيها مع بعض.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img placeholder" data-i18n="proj_placeholder">قريبًا</div>
+        <div class="project-body">
+          <span class="project-tag" data-i18n="proj_soon">قريبًا</span>
+          <h3 data-i18n="proj3_title">مشروع قادم</h3>
+          <p data-i18n="proj3_desc">هنا هتشوف أحدث أعمالنا المستقبلية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social -->
+  <section class="social-section" id="social">
+    <div class="section-header">
+      <h2 data-i18n="social_title">تابعنا على</h2>
+      <p data-i18n="social_desc">كن جزءًا من رحلتنا وتابع آخر أخبارنا ومشاريعنا</p>
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-card" id="fbLink" target="_blank" rel="noopener">
+        <div class="social-icon fb">f</div>
+        <span>Facebook</span>
+        <small data-i18n="social_soon">سيتم إضافة الرابط قريبًا</small>
+      </a>
+      <a href="#" class="social-card" id="igLink" target="_blank" rel="noopener">
+        <div class="social-icon ig">📷</div>
+        <span>Instagram</span>
+        <small data-i18n="social_soon">سيتم إضافة الرابط قريبًا</small>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <h2 data-i18n="contact_title">تواصل معنا</h2>
+      <p data-i18n="contact_desc">املأ النموذج وسنتواصل معك في أقرب وقت</p>
+    </div>
+    <div class="contact-wrapper">
+      <form id="contactForm" action="https://formsubmit.co/ymdevolber23@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="رسالة جديدة من موقع YM">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="form-group">
+          <label for="name" data-i18n="form_name">الاسم الثلاثي</label>
+          <input type="text" id="name" name="name" required placeholder="مثال: أحمد محمد علي">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone" data-i18n="form_phone">رقم الهاتف</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+20 1xx xxx xxxx">
+          </div>
+          <div class="form-group">
+            <label for="country" data-i18n="form_country">البلد</label>
+            <input type="text" id="country" name="country" required placeholder="مصر">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="service" data-i18n="form_service">الخدمة المطلوبة</label>
+          <select id="service" name="service" required>
+            <option value="" data-i18n="form_service_placeholder">اختر الخدمة</option>
+            <option value="صفحة هبوط" data-i18n="s1_title">صفحة هبوط</option>
+            <option value="موقع تعريفي" data-i18n="s2_title">موقع تعريفي</option>
+            <option value="منصة تعليمية" data-i18n="s3_title">منصة تعليمية</option>
+            <option value="متجر إلكتروني بسيط" data-i18n="s4_title">متجر إلكتروني بسيط</option>
+            <option value="لوحة تحكم" data-i18n="s5_title">لوحة تحكم</option>
+            <option value="تحسين سرعة الموقع" data-i18n="s6_title">تحسين سرعة الموقع</option>
+            <option value="تصحيح أكواد" data-i18n="s7_title">تصحيح أكواد</option>
+            <option value="أخرى" data-i18n="form_other">أخرى</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message" data-i18n="form_message">تفاصيل إضافية (اختياري)</label>
+          <textarea id="message" name="message" placeholder="اكتب تفاصيل مشروعك أو أي ملاحظات..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" data-i18n="form_submit">إرسال الرسالة</button>
+        <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 <strong>YM Partnership</strong>. <span data-i18n="footer_text">نبني مع بعض · ننمو مع بعض</span></p>
+  </footer>
+
+  <script>
+    // ===== Translations =====
+    const translations = {
+      ar: {
+        nav_about: "من نحن",
+        nav_services: "خدماتنا",
+        nav_projects: "مشاريعنا",
+        nav_social: "تابعنا",
+        nav_contact: "تواصل معنا",
+        hero_badge: "شراكة تقنية للنمو",
+        hero_title: "نبني حلول <span>تنمو</span> معك",
+        hero_desc: "نحن فريق متخصص في تحويل الأفكار إلى منصات رقمية احترافية. نركز على الجودة، السرعة، وتجربة المستخدم لنساعدك على تحقيق نتائج حقيقية.",
+        hero_cta1: "ابدأ مشروعك الآن",
+        hero_cta2: "اكتشف خدماتنا",
+        about_title: "من نحن",
+        about_p1: "YM ليست مجرد شركة برمجيات، بل شراكة حقيقية مبنية على الابتكار والتميز. نؤمن أن كل فكرة تستحق أن تتحول إلى منتج رقمي يترك أثرًا.",
+        about_p2: "نعمل بروح الفريق، ونضع جودة الكود وتجربة المستخدم في صميم كل مشروع. هدفنا مش بس نسلم لك موقع، لكن نبني معاك حل ينمو ويكبر.",
+        about_highlight: "Innovation & Excellence Solutions",
+        dev1_name: "يحيى خيري",
+        dev1_role: "مطور ويب",
+        dev2_name: "معاذ ياسر",
+        dev2_role: "مطور ويب",
+        services_title: "خدماتنا",
+        services_desc: "نقدم حلول متكاملة تناسب احتياجات مشروعك بدقة واحترافية",
+        s1_title: "صفحة هبوط",
+        s1_desc: "صفحات هبوط جذابة وسريعة مصممة لتحويل الزوار إلى عملاء بأعلى معدلات التحويل.",
+        s2_title: "موقع تعريفي",
+        s2_desc: "مواقع شركات احترافية تعكس هويتك وتبني ثقة عملائك بأسلوب أنيق وحديث.",
+        s3_title: "منصة تعليمية",
+        s3_desc: "منصات تعليم إلكتروني متكاملة مع إدارة محتوى، اختبارات، وتجربة تعلم سلسة.",
+        s4_title: "متجر إلكتروني بسيط",
+        s4_desc: "متاجر إلكترونية خفيفة وسريعة لعرض منتجاتك واستقبال الطلبات بسهولة.",
+        s5_title: "لوحة تحكم",
+        s5_desc: "لوحات تحكم مخصصة لإدارة بياناتك ومشروعك بكل سهولة ووضوح.",
+        s6_title: "تحسين سرعة الموقع",
+        s6_desc: "نحسن أداء موقعك ليصبح أسرع وأخف، مما يرفع تجربة المستخدم وترتيبك في محركات البحث.",
+        s7_title: "تصحيح أكواد",
+        s7_desc: "إصلاح الأخطاء البرمجية وتحسين جودة الكود ليعمل مشروعك بسلاسة واستقرار.",
+        projects_title: "مشاريعنا",
+        projects_desc: "مساحات جاهزة لعرض أعمالنا القادمة",
+        proj_placeholder: "قريبًا",
+        proj_soon: "قريبًا",
+        proj1_title: "مشروع قادم",
+        proj1_desc: "هنا هنعرض أول مشاريع YM بعد الإطلاق.",
+        proj2_title: "مشروع قادم",
+        proj2_desc: "مساحة محجوزة لفكرة جديدة نبنيها مع بعض.",
+        proj3_title: "مشروع قادم",
+        proj3_desc: "هنا هتشوف أحدث أعمالنا المستقبلية.",
+        social_title: "تابعنا على",
+        social_desc: "كن جزءًا من رحلتنا وتابع آخر أخبارنا ومشاريعنا",
+        social_soon: "سيتم إضافة الرابط قريبًا",
+        contact_title: "تواصل معنا",
+        contact_desc: "املأ النموذج وسنتواصل معك في أقرب وقت",
+        form_name: "الاسم الثلاثي",
+        form_phone: "رقم الهاتف",
+        form_country: "البلد",
+        form_service: "الخدمة المطلوبة",
+        form_service_placeholder: "اختر الخدمة",
+        form_other: "أخرى",
+        form_message: "تفاصيل إضافية (اختياري)",
+        form_submit: "إرسال الرسالة",
+        footer_text: "نبني مع بعض · ننمو مع بعض"
+      },
+      en: {
+        nav_about: "About",
+        nav_services: "Services",
+        nav_projects: "Projects",
+        nav_social: "Follow Us",
+        nav_contact: "Contact",
+        hero_badge: "Tech Growth Partnership",
+        hero_title: "We build solutions that <span>grow</span> with you",
+        hero_desc: "We are a specialized team that turns ideas into professional digital platforms. We focus on quality, speed, and user experience to help you achieve real results.",
+        hero_cta1: "Start Your Project",
+        hero_cta2: "Explore Services",
+        about_title: "About Us",
+        about_p1: "YM is not just a software company — it's a real partnership built on innovation and excellence. We believe every idea deserves to become a digital product that leaves an impact.",
+        about_p2: "We work as a true team, putting code quality and user experience at the heart of every project. Our goal isn't just to deliver a website, but to build a solution that grows with you.",
+        about_highlight: "Innovation & Excellence Solutions",
+        dev1_name: "Yahya Khairy",
+        dev1_role: "Web Developer",
+        dev2_name: "Moaz Yasser",
+        dev2_role: "Web Developer",
+        services_title: "Our Services",
+        services_desc: "Integrated solutions tailored precisely to your project needs",
+        s1_title: "Landing Page",
+        s1_desc: "Attractive and fast landing pages designed to convert visitors into customers at the highest rates.",
+        s2_title: "Company Website",
+        s2_desc: "Professional company websites that reflect your identity and build client trust with a modern elegant style.",
+        s3_title: "Educational Platform",
+        s3_desc: "Complete e-learning platforms with content management, quizzes, and a smooth learning experience.",
+        s4_title: "Simple E-commerce",
+        s4_desc: "Lightweight and fast online stores to showcase your products and receive orders easily.",
+        s5_title: "Dashboard",
+        s5_desc: "Custom dashboards to manage your data and project with ease and clarity.",
+        s6_title: "Website Speed Optimization",
+        s6_desc: "We improve your site's performance to make it faster and lighter, boosting UX and search rankings.",
+        s7_title: "Code Fixing",
+        s7_desc: "Fixing bugs and improving code quality so your project runs smoothly and stably.",
+        projects_title: "Our Projects",
+        projects_desc: "Spaces ready to showcase our upcoming work",
+        proj_placeholder: "Coming Soon",
+        proj_soon: "Coming Soon",
+        proj1_title: "Upcoming Project",
+        proj1_desc: "Here we'll showcase YM's first projects after launch.",
+        proj2_title: "Upcoming Project",
+        proj2_desc: "Reserved space for a new idea we'll build together.",
+        proj3_title: "Upcoming Project",
+        proj3_desc: "Here you'll see our latest future work.",
+        social_title: "Follow Us",
+        social_desc: "Be part of our journey and follow our latest news and projects",
+        social_soon: "Link will be added soon",
+        contact_title: "Contact Us",
+        contact_desc: "Fill out the form and we'll get back to you as soon as possible",
+        form_name: "Full Name",
+        form_phone: "Phone Number",
+        form_country: "Country",
+        form_service: "Requested Service",
+        form_service_placeholder: "Select a service",
+        form_other: "Other",
+        form_message: "Additional Details (optional)",
+        form_submit: "Send Message",
+        footer_text: "We build together · We grow together"
+      }
+    };
+
+    // ===== State =====
+    let currentLang = localStorage.getItem('ym-lang') || 'ar';
+    let currentTheme = localStorage.getItem('ym-theme') || 'light';
+
+    // ===== Theme =====
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'dark' : '');
+      document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+      localStorage.setItem('ym-theme', theme);
+      currentTheme = theme;
+    }
+
+    // ===== Language =====
+    function applyLanguage(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) {
+          if (el.tagName === 'OPTION') {
+            el.textContent = t[key];
+          } else {
+            el.innerHTML = t[key];
+          }
+        }
+      });
+
+      // Update placeholders
+      const nameInput = document.getElementById('name');
+      const phoneInput = document.getElementById('phone');
+      const countryInput = document.getElementById('country');
+      const messageInput = document.getElementById('message');
+
+      if (lang === 'ar') {
+        nameInput.placeholder = 'مثال: أحمد محمد علي';
+        phoneInput.placeholder = '+20 1xx xxx xxxx';
+        countryInput.placeholder = 'مصر';
+        messageInput.placeholder = 'اكتب تفاصيل مشروعك أو أي ملاحظات...';
+      } else {
+        nameInput.placeholder = 'e.g. Ahmed Mohamed Ali';
+        phoneInput.placeholder = '+20 1xx xxx xxxx';
+        countryInput.placeholder = 'Egypt';
+        messageInput.placeholder = 'Describe your project or any notes...';
+      }
+
+      document.getElementById('langToggle').textContent = lang === 'ar' ? 'EN' : 'عربي';
+      localStorage.setItem('ym-lang', lang);
+      currentLang = lang;
+    }
+
+    // ===== Init =====
+    applyTheme(currentTheme);
+    applyLanguage(currentLang);
+
+    // ===== Events =====
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
+    });
+
+    // ===== Contact form =====
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+      submitButton.disabled = true;
+      submitButton.style.opacity = '0.7';
+      submitButton.textContent = currentLang === 'ar' ? 'جارٍ الإرسال...' : 'Sending...';
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/ymdevolber23@gmail.com', {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        const result = await response.json();
+        if (!response.ok || result.success === false) {
+          throw new Error('FormSubmit request failed');
+        }
+
+        formStatus.className = 'form-status success';
+        formStatus.textContent = currentLang === 'ar'
+          ? 'تم تسليم رسالتك بنجاح، وسنتواصل معك قريبًا.'
+          : 'Your message was delivered successfully. We will contact you soon.';
+        contactForm.reset();
+      } catch (error) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = currentLang === 'ar'
+          ? 'تعذر إرسال الرسالة حاليًا. حاول مرة أخرى بعد قليل.'
+          : 'The message could not be sent. Please try again later.';
+      } finally {
+        submitButton.disabled = false;
+        submitButton.style.opacity = '';
+        submitButton.textContent = currentLang === 'ar' ? 'إرسال الرسالة' : 'Send Message';
+      }
+    });
+
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      document.getElementById('nav').classList.toggle('active');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
